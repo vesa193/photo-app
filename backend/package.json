@@ -31,10 +31,8 @@
     "dependencies": {
         "express": "^4.21.0"
     },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
+    "hooks": {
+        "pre-commit": "lint-staged"
     },
     "lint-staged": {
         "*.ts": [
