@@ -8,9 +8,7 @@
         "build": "tsc",
         "lint": "eslint src/**/*.ts",
         "lint:fix": "eslint src/**/*.ts --fix",
-        "format": "prettier . --write",
-        "prepare": "husky",
-        "precommit": "eslint ."
+        "format": "prettier . --write"
     },
     "keywords": [],
     "author": "",
@@ -40,7 +38,7 @@
     },
     "lint-staged": {
         "*.ts": [
-            "npm run lint:fix",
+            "npm run format",
             "git add"
         ]
     }
