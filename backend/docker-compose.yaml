@@ -1,0 +1,20 @@
+services:
+    app:
+        build:
+            context: .
+            target: dev
+        ports:
+            - ${SERVER_PORT}:${SERVER_PORT}
+        command: npm run dev
+        volumes:
+            - .:/usr/src/app
+        environment:
+            NODE_ENV: development
+            DB_HOST: ${POSTGRES_HOST}
+        depends_on:
+            - db
+
+    db:
+        extends:
+            file: docker-compose.base.yaml
+            service: db

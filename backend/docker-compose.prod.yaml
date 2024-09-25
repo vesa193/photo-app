@@ -1,0 +1,15 @@
+services:
+    app:
+        build:
+            context: .
+            target: prod
+        ports:
+            - 3000:3000
+        command: node src/server.js
+        depends_on:
+            - db
+
+    db:
+        extends:
+            file: decker-compose.base.yaml
+            service: db

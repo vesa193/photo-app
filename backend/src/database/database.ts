@@ -1,12 +1,17 @@
 import { Pool } from 'pg';
+import { postgresConfig } from '../config';
 
 const pool = new Pool({
-    user: 'postgres',
-    password: 'vesadev193',
-    host: 'localhost',
-    port: 5432,
-    database: 'photo_app',
+    ...postgresConfig,
     idleTimeoutMillis: 30000,
 });
 
-export default pool;
+const connectToDB = async () => {
+    try {
+        await pool.connect();
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+export { pool, connectToDB };
